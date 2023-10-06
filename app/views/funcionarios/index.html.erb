@@ -1,0 +1,28 @@
+<!-- app/views/funcionarios/index.html.erb -->
+<h1>Listagem de Funcionários</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Setor</th>
+      <!-- Outras colunas, se aplicável -->
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @funcionarios.each do |funcionario| %>
+      <tr>
+        <td><%= funcionario.nome %></td>
+        <td><%= funcionario.setor.nome %></td>
+        <!-- Outras colunas, se aplicável -->
+        <td>
+          <%= link_to 'Ver', funcionario %>
+          <%= link_to 'Editar', edit_funcionario_path(funcionario) %>
+          <%= link_to 'Excluir', funcionario, method: :delete, data: { confirm: 'Tem certeza?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Novo Funcionário', new_funcionario_path %>

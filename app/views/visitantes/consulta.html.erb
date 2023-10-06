@@ -1,0 +1,13 @@
+<!-- app/views/visitantes/consulta.html.erb -->
+<h1>Consulta de Visitantes por CPF</h1>
+
+<%= form_tag(consultar_visitantes_path, method: :get) do %>
+  <div class="field">
+    <%= label_tag 'CPF' %>
+    <%= text_field_tag 'cpf' %>
+  </div>
+
+  <%= submit_tag 'Consultar' %>
+<% end %>
+
+<%= link_to 'Voltar', visitantes_path %>

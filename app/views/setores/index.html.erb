@@ -1,0 +1,9 @@
+<!-- app/views/setores/index.html.erb -->
+<h1>Listagem de Setores</h1>
+<ul>
+  <% @setores.each do |setor| %>
+    <li><%= setor.nome %></li>
+  <% end %>
+</ul>
+
+<%= link_to 'Novo Setor', new_setor_path %>

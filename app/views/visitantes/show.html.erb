@@ -1,0 +1,7 @@
+<!-- app/views/visitantes/show.html.erb -->
+<h1>Detalhes do Visitante</h1>
+<p><strong>Nome:</strong> <%= @visitante.nome %></p>
+<p><strong>CPF:</strong> <%= @visitante.cpf %></p>
+<p><strong>Data e Hora da Visita:</strong> <%= @visitante.data_hora_visita.strftime('%d/%m/%Y %H:%M') %></p>
+<!-- Outros detalhes do visitante -->
+<%= link_to 'Voltar', visitantes_path %>

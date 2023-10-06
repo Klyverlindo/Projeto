@@ -1,0 +1,24 @@
+<!-- app/views/visitantes/consulta_resultados.html.erb -->
+<div class="container">
+  <h1 class="text-center mt-4 mb-4">Resultados da Consulta de Visitantes</h1>
+
+  <% if @visitantes.present? %>
+    <ul class="list-group">
+      <% @visitantes.each do |visitante| %>
+        <li class="list-group-item">
+          <h5 class="mb-0">Nome:</h5>
+          <p><%= visitante.nome %></p>
+          <h5 class="mb-0">CPF:</h5>
+          <p><%= visitante.cpf %></p>
+          <!-- Adicione outros atributos que deseja exibir -->
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+    <div class="alert alert-warning mt-4">
+      <%= flash[:alert] %>
+    </div>
+  <% end %>
+
+  <%= link_to 'Voltar', visitantes_path, class: 'btn btn-primary mt-4' %>
+</div>

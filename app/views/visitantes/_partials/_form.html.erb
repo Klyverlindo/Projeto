@@ -1,0 +1,36 @@
+<!-- app/views/visitantes/_form.html.erb -->
+<%= form_with(model: visitante, local: true) do |form| %>
+  <% if visitante.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(visitante.errors.count, 'erro') %> encontrados:</h2>
+      <ul>
+        <% visitante.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :cpf %>
+    <%= form.text_field :cpf %>
+  </div>
+  
+  <!-- Adicione campos para os outros atributos do visitante -->
+  
+  <div class="actions">
+    <%= form.submit 'Salvar' %>
+  </div>
+<% end %>
+
+<!-- app/views/visitantes/_form.html.erb -->
+<div class="field">
+  <%= form.label :data_hora_visita, 'Data e Hora da Visita' %>
+  <%= form.datetime_field :data_hora_visita %>
+</div>
+

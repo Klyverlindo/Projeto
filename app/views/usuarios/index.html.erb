@@ -1,0 +1,28 @@
+<!-- app/views/usuarios/index.html.erb -->
+<h1>Listagem de Usuários</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Papel</th>
+      <!-- Outras colunas, se aplicável -->
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @usuarios.each do |usuario| %>
+      <tr>
+        <td><%= usuario.email %></td>
+        <td><%= usuario.role %></td>
+        <!-- Outras colunas, se aplicável -->
+        <td>
+          <%= link_to 'Ver', usuario %>
+          <%= link_to 'Editar', edit_usuario_path(usuario) %>
+          <%= link_to 'Excluir', usuario, method: :delete, data: { confirm: 'Tem certeza?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Novo Usuário', new_usuario_path %>

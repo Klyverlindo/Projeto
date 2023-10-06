@@ -1,0 +1,30 @@
+<!-- app/views/visitantes/index.html.erb -->
+<h1>Listagem de Visitantes</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>CPF</th>
+      <th>Data e Hora da Visita</th>
+      <!-- Outras colunas -->
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @visitantes.each do |visitante| %>
+      <tr>
+        <td><%= visitante.nome %></td>
+        <td><%= visitante.cpf %></td>
+        <td><%= visitante.data_hora_visita.strftime('%d/%m/%Y %H:%M') %></td>
+        <!-- Outras colunas -->
+        <td>
+          <%= link_to 'Ver', visitante %>
+          <%= link_to 'Editar', edit_visitante_path(visitante) %>
+          <%= link_to 'Excluir', visitante, method: :delete, data: { confirm: 'Tem certeza?' } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Novo Visitante', new_visitante_path %>

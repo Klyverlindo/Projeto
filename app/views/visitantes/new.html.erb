@@ -1,0 +1,23 @@
+<!-- app/views/visitantes/new.html.erb -->
+<h1>Cadastrar Novo Visitante</h1>
+
+<%= form_with(model: @visitante, local: true) do |form| %>
+  <div class="field">
+    <%= form.label :cpf %>
+    <%= form.text_field :cpf %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nome %>
+    <%= form.text_field :nome %>
+  </div>
+
+  <!-- Adicione os outros campos do formulário aqui -->
+
+  <div class="actions">
+    <%= form.submit 'Cadastrar' %>
+  </div>
+<% end %>
+
+<%= link_to 'Consultar Visitantes por CPF', consultar_visitantes_path %>
+<%= link_to 'Voltar', visitantes_path %>
